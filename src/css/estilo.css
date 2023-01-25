@@ -1,0 +1,229 @@
+/*--------------reset----------------*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+/*---------------css----------------*/
+body {
+    font-family: 'Poppins';
+    color: white;
+}
+
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.cabecalho .Logo {
+    width: 65px;
+}
+
+.cabecalho .menu {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.cabecalho nav li a {
+    font-weight: bold;
+    color: white;
+    border-radius: 50px;
+    font-size: 25px;
+    padding: 10px 20px;
+    transition: 0.3s;
+}
+
+.cabecalho nav li a:hover {
+    background-color: #d5011d;
+}
+
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    height: calc(100vh - 132px);
+    padding: 0 30px 30px;
+}
+
+.container .imagem-titulo {
+    max-width: 500px;
+}
+
+.container .descricao {
+    color: #a8adb7;
+    width: 85%;
+    font-size: 18px;
+    margin: 0px 30PX 30PX 0;
+}
+
+.container .botao-trailer {
+    background-color: #ff0021;
+    color: white;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    text-transform: uppercase;
+    transition: 0.5s all ease-in-out;
+}
+
+.container .botao-trailer:hover {
+    transform: scale(1.1);
+}
+
+.container .personagem {
+    height: 550px;
+}
+
+.fundo-video {
+    background-color: black;
+    position: absolute;
+    z-index: -1;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.fundo-video .video {
+    height: 100vh;
+}
+
+.fundo-video::after {
+    content: "";
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8141631652661064) 50%, rgba(0,0,0,1) 83%);
+}
+
+.modal {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(52, 52, 50, 0.749);
+    visibility: hidden;
+}
+
+.conteudo-modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    border-radius: 5px;
+    gap: 15px;
+}
+
+.fechar-modal{
+    background-color: rgb(64, 64, 64);
+    font-weight: bold;
+    font-size: 20px;
+    width: 40px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.modal iframe {
+    border-width: 0;
+    width: 640px;
+    height: 360px;
+}
+
+.modal.aberto {
+    opacity: 1;
+    visibility: visible;
+}
+
+/*----------responsividade-----------*/
+
+@media (max-width: 1200px) {
+    body {
+        background-color: #2f2828;
+    }
+
+    .fundo-video {
+        display: none;
+    }
+
+    .container {
+        flex-wrap: wrap;
+        justify-content: center;
+        height: auto;
+        gap: 30px;
+    }
+
+    .container .mario {
+        max-width: 50%;
+    }
+
+    .container .informacoes {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .container .descricao {
+        color: white;
+        text-align: center;
+    }
+    
+}
+
+@media (max-width: 700px) {
+    .cabecalho {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .container .imagem-titulo {
+        max-width: 75%;
+    }
+
+    .modal .fechar-modal {
+        width: 30px;
+        line-height: 30px;
+    }
+
+    .container .personagem {
+        height: 330px;
+    }
+
+    .modal #video {
+        width: 300px;
+        height: 169px;
+    }
+}
+
+@media (max-width: 376px) {
+
+    .container .personagem {
+        height: 200px;
+    }
+
+    .modal #video {
+        width: 250px;
+        height: 140px;
+    }
+}
